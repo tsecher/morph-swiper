@@ -1,0 +1,77 @@
+@import "../node_modules/swiper/swiper";
+
+body {
+    .wrapper {
+        width: 300px;
+        height: 300px;
+
+        transition: width .5s cubic-bezier(0, .8, 0, 1),
+                    height .5s cubic-bezier(0, .8, 0, 1);
+
+        #morph-example {
+            width: 100%;
+            height: 100%;
+        }
+
+        &.round {
+            width: 600px;
+            height: 600px;
+        }
+    }
+
+    .swiper{
+        &-slide{
+            width: 600px;
+            height: 600px;
+            transition: width .5s ease;
+            //background: none !important;
+
+            .text{
+                opacity: 0;
+                position: absolute;
+                bottom: 3rem;
+
+                transition: opacity .3s ease, bottom .3s ease;
+                transition-delay: 0s, 0s;
+            }
+
+            .wrapper{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 20%;
+                height: 20%;
+
+                transition: width .3s ease, height .3s ease, left .3s ease, bottom .3s ease;
+            }
+
+            &.swiper-slide-active{
+                z-index: 9;
+
+                .text{
+                    opacity: 1;
+                    bottom: 5rem;
+                    transition: opacity .7s ease, bottom .7s ease;
+                    transition-delay: .4s, .4s;
+                }
+
+                .wrapper{
+                    width: 75%;
+                    height: 75%;
+                    bottom: 25%;
+                    left: 75%;
+
+                    svg{
+                        width: 100%;
+                    }
+                }
+            }
+
+            &.swiper-slide-next{
+                .wrapper{
+                    left: 80%;
+                }
+            }
+        }
+    }
+}
